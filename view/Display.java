@@ -11,7 +11,7 @@ public class Display {
     //ゲームの状況を表示
     public void propsView(ArrayList<Card> cardlist, ArrayList<Box> boxlist,
             ArrayList<String> presents) {
-        System.out.println("＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝\n");
+        System.out.println("\n＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝\n");
         System.out.println("  ----プレゼントボックス----");
         for(Box b : boxlist) {
             System.out.printf("【%s】", b.getName());
@@ -36,8 +36,8 @@ public class Display {
 
     //だよんカードオープン
     public void dayonOpen(Card card) {
-        System.out.println("「ゲームスタート！」");
-        System.out.printf("だよんカードの数字は %d です！\n\n", card.getCardnum());
+        System.out.println("\n\n「ゲームスタート！」");
+        System.out.printf("だよんカードの数字は %d です！\n", card.getCardnum());
     }
 
     //カードオープン
@@ -69,8 +69,8 @@ public class Display {
 
     //challengerが3連続で勝った時
     public void gameEnd(ArrayList<String> presents){
-        System.out.println("おめでとうございます！3連続で成功したため終了です");
-        System.out.println("☆☆獲得したプレゼント☆☆");
+        System.out.println("\nゲーム終了です。景品獲得おめでとうございます!!");
+        System.out.println("☆☆ 獲得したプレゼント ☆☆");
         for(String p : presents) {
             System.out.println("● " + p);
         }
@@ -92,6 +92,6 @@ public class Display {
     //範囲外の数字の警告
     public void indexCheck() {
         System.out.println("[!]範囲内の数字を入力してください");
-        System.out.println("   (カード:1～10  ボックス:1～5  ハイorロー:0～1)\n");
+        System.out.println("(カード:1～10 / ボックス:1～5 / ハイorロー:0～1 / YES or NO:1～2)\n");
     }
 }
