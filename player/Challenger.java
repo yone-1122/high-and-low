@@ -29,7 +29,7 @@ public class Challenger {
     public int cardSelect(ArrayList<Card> cardlist) {
         boolean loop = true;
         while(loop){
-            System.out.print("★カード番号を選んでね => ");
+            System.out.print("★ カード番号を選んでね => ");
             try {
                 num = Integer.parseInt(in.nextLine());
                 if(num > 0 && num <= cards) loop = false;
@@ -45,7 +45,7 @@ public class Challenger {
     public int hlSelect() {
         boolean loop = true;
         while(loop) {
-            System.out.print("★ハイ or ロー ？");
+            System.out.print("★ ハイ or ロー ？");
             System.out.print("(数字で選んでね) ハイ:1  ロー:0  => ");
             try {
                 hl = Integer.parseInt(in.nextLine());
@@ -63,7 +63,7 @@ public class Challenger {
     public int boxSelect(ArrayList<Box> boxlist) {
         boolean loop = true;
         while(loop) {
-            System.out.print("★左から何番目のプレゼントボックスを選びますか？");
+            System.out.print("★ 左から何番目のプレゼントボックスを選びますか？");
             System.out.print("(数字で選んでね) => ");
             try {
                 num = Integer.parseInt(in.nextLine());
@@ -76,5 +76,25 @@ public class Challenger {
             }
         }
         return num;
+    }
+
+    //次のゲームに挑戦するかを選択
+    public boolean nextGame() {
+        boolean loop = true, next = true;
+        while(loop){
+            System.out.println(" 引き続きゲームに挑戦しますか？");
+            System.out.print(" YES:1  NO:2  => ");
+            try{
+                num = Integer.parseInt(in.nextLine());
+                if(num >= 1 && num <= 2){
+                    loop = false;
+                }
+                else disp.indexCheck();
+            } catch (NumberFormatException e) {
+                disp.numCheck();
+            }
+        }
+        if (num == 2) next = false;
+        return next;
     }
 }
