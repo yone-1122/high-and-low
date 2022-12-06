@@ -17,7 +17,6 @@ public class Main {
     private Master mas = new Master();
 
     public static void main(String[] args) throws InterruptedException {
-        // TODO 自動生成されたメソッド・スタブ
         Main main = new Main();
         main.mainFlow();
     }
@@ -66,10 +65,16 @@ public class Main {
                 disp.boxOpen(box);
                 card1 = card2;
                 Thread.sleep(1000);
-                if(mas.getWincnt() == 3) { //challengerが3連続で勝ったら結果を表示して終了
+                if(mas.getWincnt() == 3) {
+                    //challengerの勝利数が3なら終了
+                    loop = false;
+                } else {
+                    //challengerの勝利数が1～2なら勝負を続けるかを選択
+                    loop = ch.nextGame();
+                }
+                if(!loop) { //loop = falseなら獲得景品を表示して終了
                     ArrayList<String> presents = ch.getPresents();
                     disp.gameEnd(presents);
-                    loop = false;
                 }
             } else {
                 loop = false; //負けたら終了
